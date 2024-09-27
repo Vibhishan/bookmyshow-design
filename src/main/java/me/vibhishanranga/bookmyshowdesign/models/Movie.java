@@ -1,60 +1,32 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Entity
+@Getter
+@Setter
 public class Movie extends BaseModel{
     private String name;
+
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
     private List<Language> languages;
+
+    // 1 Movie -> M Actors
+    // M Movies <- 1 Actor
+    // we have used "mappedby" in Actor class to avoid making multiple tables
+    @ManyToMany
     private List<Actor> actors;
+
     private int length;
+
     private double rating;
+
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
     private List<MovieFeature> movieFeatures;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Language> getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(List<Language> languages) {
-        this.languages = languages;
-    }
-
-    public List<Actor> getActors() {
-        return actors;
-    }
-
-    public void setActors(List<Actor> actors) {
-        this.actors = actors;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public List<MovieFeature> getMovieFeatures() {
-        return movieFeatures;
-    }
-
-    public void setMovieFeatures(List<MovieFeature> movieFeatures) {
-        this.movieFeatures = movieFeatures;
-    }
 }

@@ -1,42 +1,27 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Entity
+@Getter
+@Setter
 public class Theatre extends BaseModel{
     private String name;
+
     private String address;
+
+    // 1 Theatre -> M Auditorium
+    // 1 Theatre -> 1 Auditorium
+    @OneToMany (mappedBy = "theatre")
     private List<Auditorium> auditoriums;
+
+    // 1 Theatre -> M Shows
+    // 1 Theatre <- 1 Show
+    @OneToMany
     private List<Show> upcomingShows;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public List<Auditorium> getAuditoriums() {
-        return auditoriums;
-    }
-
-    public void setAuditoriums(List<Auditorium> auditoriums) {
-        this.auditoriums = auditoriums;
-    }
-
-    public List<Show> getUpcomingShows() {
-        return upcomingShows;
-    }
-
-    public void setUpcomingShows(List<Show> upcomingShows) {
-        this.upcomingShows = upcomingShows;
-    }
 }

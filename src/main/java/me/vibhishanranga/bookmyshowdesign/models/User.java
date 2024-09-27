@@ -1,5 +1,8 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class User extends BaseModel{
     private String email;
 

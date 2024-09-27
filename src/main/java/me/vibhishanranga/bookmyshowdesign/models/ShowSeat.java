@@ -1,31 +1,26 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
 public class ShowSeat extends BaseModel{
+    // 1 ShowSeat -> 1 Show
+    // M ShowSeats -> 1 Show
+    @ManyToOne
     private Show show;
+
+    // 1 ShowSeat -> 1 Seat
+    // M ShowSeats -> 1 Seat
+    @ManyToOne
     private Seat seat;
+
+    @Enumerated(EnumType.STRING)
     private ShowSeatState state;
-
-    public Show getShow() {
-        return show;
-    }
-
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    public Seat getSeat() {
-        return seat;
-    }
-
-    public void setSeat(Seat seat) {
-        this.seat = seat;
-    }
-
-    public ShowSeatState getState() {
-        return state;
-    }
-
-    public void setState(ShowSeatState state) {
-        this.state = state;
-    }
 }

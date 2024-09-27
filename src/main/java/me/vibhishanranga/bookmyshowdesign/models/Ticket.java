@@ -1,51 +1,33 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Entity
+@Getter
+@Setter
 public class Ticket extends BaseModel{
+    // 1 Ticket -> 1 User
+    // M Tickets <- 1 User
+    @ManyToOne
     private User bookedBy;
+
+    // 1 Ticket -> 1 Show
+    // M Tickets <- 1 Show
+    @ManyToOne
     private Show show;
+
+    // 1 Ticket -> M ShowSeat
+    // M Ticket <- 1 ShowSeat
+    // @OneToMany if no cancellation
+    @ManyToMany
     private List<ShowSeat> showSeats;
+
     private double totalAmount;
+
+    @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
-
-    public User getBookedBy() {
-        return bookedBy;
-    }
-
-    public void setBookedBy(User bookedBy) {
-        this.bookedBy = bookedBy;
-    }
-
-    public Show getShow() {
-        return show;
-    }
-
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    public List<ShowSeat> getShowSeats() {
-        return showSeats;
-    }
-
-    public void setShowSeats(List<ShowSeat> showSeats) {
-        this.showSeats = showSeats;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public TicketStatus getTicketStatus() {
-        return ticketStatus;
-    }
-
-    public void setTicketStatus(TicketStatus ticketStatus) {
-        this.ticketStatus = ticketStatus;
-    }
 }
