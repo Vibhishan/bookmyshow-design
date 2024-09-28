@@ -23,6 +23,6 @@ public class BookmyshowDesignApplication implements CommandLineRunner {
         CreateUserRequestDto requestDto = new CreateUserRequestDto();
         requestDto.setEmail("test_user2@gmail.com");
 
-        this.userController.createuser(requestDto);
+        this.userController.createUser(requestDto);
     }
 }

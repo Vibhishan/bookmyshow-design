@@ -17,7 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    public CreateUserResponseDto createuser(CreateUserRequestDto request){
+    public CreateUserResponseDto createUser(CreateUserRequestDto request){
         User savedUser = userService.createUser(request.getEmail());
 
         CreateUserResponseDto response = new CreateUserResponseDto();
