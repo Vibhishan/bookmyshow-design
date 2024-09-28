@@ -1,6 +1,7 @@
 package me.vibhishanranga.bookmyshowdesign.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,6 @@ public class City extends BaseModel{
 
     // 1 City -> M Theatres
     // 1 Theatre -> 1 City
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Theatre> theatres;
 }
