@@ -88,11 +88,7 @@ public class TheatreService {
             }
         }
 
-        List<Seat> savedSeats = new ArrayList<>();
-
-        for(Seat seat: seats){
-            savedSeats.add(seatRepository.save(seat));
-        }
+        List<Seat> savedSeats = seatRepository.saveAll(seats);
 
         auditorium.setSeats(savedSeats);
 
