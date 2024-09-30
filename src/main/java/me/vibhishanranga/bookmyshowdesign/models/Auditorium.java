@@ -14,7 +14,7 @@ public class Auditorium extends BaseModel{
 
     // 1 Auditorium -> M Seats
     // 1 Seat -> 1 Auditorium
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Seat> seats;
 
     private int capacity;
