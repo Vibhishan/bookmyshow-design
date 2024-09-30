@@ -32,6 +32,8 @@ This section is for class diagram
 
 This section is for class diagram with dependencies
 
+![Image Description](/Users/vibhishan/Desktop/package.png)
+
 ## TODO
 
 This section is for features that can be added to the project
