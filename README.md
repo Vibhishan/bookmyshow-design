@@ -22,22 +22,16 @@ well.
 
 ## Requirements
 
----
 This section is for requirements
 
 ## Class Diagram
 
----
 This section is for class diagram
-
 
 ## Class Diagram (with dependencies)
 
----
 This section is for class diagram with dependencies
 
 ## TODO
-
----
 
 This section is for features that can be added to the project
