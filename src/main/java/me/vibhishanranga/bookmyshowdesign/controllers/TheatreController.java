@@ -3,10 +3,13 @@ package me.vibhishanranga.bookmyshowdesign.controllers;
 import me.vibhishanranga.bookmyshowdesign.dtos.CreateTheatreRequestDto;
 import me.vibhishanranga.bookmyshowdesign.dtos.CreateTheatreResponseDto;
 import me.vibhishanranga.bookmyshowdesign.exceptions.CityNotFoundException;
+import me.vibhishanranga.bookmyshowdesign.models.SeatType;
 import me.vibhishanranga.bookmyshowdesign.models.Theatre;
 import me.vibhishanranga.bookmyshowdesign.services.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import java.util.Map;
 
 @Controller
 public class TheatreController {
@@ -34,5 +37,9 @@ public class TheatreController {
 
     public Theatre addAuditorium(Long theatreId, String name, int capacity){
         return theatreService.addAuditorium(theatreId, name, capacity);
+    }
+
+    public void addSeatsToAuditorium(Long auditoriumId, Map<SeatType, Integer> seatCount){
+        theatreService.addSeatsToAuditorium(auditoriumId, seatCount);
     }
 }
