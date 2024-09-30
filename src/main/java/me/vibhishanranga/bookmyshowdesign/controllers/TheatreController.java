@@ -31,4 +31,8 @@ public class TheatreController {
 
         return response;
     }
+
+    public Theatre addAuditorium(Long theatreId, String name, int capacity){
+        return theatreService.addAuditorium(theatreId, name, capacity);
+    }
 }
