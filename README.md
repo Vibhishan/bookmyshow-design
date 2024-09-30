@@ -32,7 +32,7 @@ This section is for class diagram
 
 This section is for class diagram with dependencies
 
-![Image Description](/Users/vibhishan/Desktop/package.png)
+![Alternative Text](https://github.com/Vibhishan/bookmyshow-design/tree/main/class_diagram_with_dependencies.png?raw=true)
 
 ## TODO
 
